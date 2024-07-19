@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Profile</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <header id="header">
+        <h1 id="logo"><a href="index.html"><img src="images/9950.jpg" alt="" width="40" height="40" /></a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" onclick="logout()">Log Out</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section id="main" class="container">
+        <header>
+          <h2>Profile</h2>
+        </header>
+        <div class="box">
+          <form onsubmit="return updateUsername()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="">
+            <input type="submit" value="Update">
+          </form>
+        </div>
+      </section>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/longin.js"></script>
+    <script>
+      function updateUsername() {
+        var username = document.getElementById('username').value;
+        localStorage.setItem('username', username);
+        alert('Username updated');
+        window.location.href = "index.html";
+        return false; // ป้องกันการ submit ฟอร์ม
+      }
+
+      // ตั้งค่า username ปัจจุบันใน input field
+      document.addEventListener('DOMContentLoaded', function() {
+        var username = localStorage.getItem('username');
+        document.getElementById('username').value = username;
+      });
+    </script>
+  </body>
+</html>

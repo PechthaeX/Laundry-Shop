@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Form Register</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        /* เพิ่มสไตล์เพื่อปรับแต่งหน้าจอ */
+        .form-container {
+            margin-top: 50px; /* ขยับตำแหน่งของ form ไปข้างบน */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 col-xs-12 form-container">
+            <form name="register" id="register" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-5" align="left">
+                        <br>
+                        <h4>สมัครสมาชิก</h4>
+                    </div>
+                    <input name="Admin_level" type="hidden" id="Admin_level" value="2" />
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="Admin_username">Username :</label>
+                    <div class="col-sm-5">
+                        <input name="Admin_username" type="text" required class="form-control" id="Admin_username" placeholder="Username" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="2" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="Admin_password">Password :</label>
+                    <div class="col-sm-5">
+                        <input name="Admin_password" type="password" required class="form-control" id="Admin_password" placeholder="Password" pattern="^[a-zA-Z0-9]+$" minlength="2" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="Admin_name">ชื่อ-สกุล :</label>
+                    <div class="col-sm-7">
+                        <input name="Admin_name" type="text" required class="form-control" id="Admin_name" placeholder="ชื่อ-สกุล" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="Admin_email">อีเมล์ :</label>
+                    <div class="col-sm-6">
+                        <input name="Admin_email" type="email" class="form-control" id="Admin_email" placeholder="อีเมล์" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="Admin_phone">เบอร์โทร :</label>
+                    <div class="col-sm-6">
+                        <input name="Admin_phone" type="text" class="form-control" id="Admin_phone" placeholder="เบอร์โทร" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary" onclick="registerUser()">สมัครสมาชิก</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    function registerUser() {
+        var username = document.getElementById('Admin_username').value;
+        var password = document.getElementById('Admin_password').value;
+        var name = document.getElementById('Admin_name').value;
+        var email = document.getElementById('Admin_email').value;
+        var phone = document.getElementById('Admin_phone').value;
+
+        // Save user data in localStorage
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        localStorage.setItem('name', name);
+        localStorage.setItem('email', email);
+        localStorage.setItem('phone', phone);
+
+        // Automatically log in the user
+        localStorage.setItem('loggedIn', true);
+
+        // Redirect to index.html
+        window.location.href = "index.html";
+    }
+</script>
+</body>
+</html>

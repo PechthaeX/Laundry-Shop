@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ระบบรับส่ง</title>
+<link rel="stylesheet" href="assets/css/serve.css" />
+</head>
+<body>
+
+<div class="container">
+    <h2>ระบบรับส่ง</h2>
+    <form id="deliveryForm">
+        <div class="form-group">
+            <label for="name">ชื่อ:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">เบอร์โทร:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <div id="map"></div>
+            <label for="address">ที่อยู่:</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+        <div class="form-group">
+            <label for="service">บริการ:</label>
+            <select id="service" name="service" onchange="toggleOtherService()">
+                <option value="รับ/ส่ง">รับ/ส่ง</option>
+                <option value="รับ">รับ</option>
+                <option value="อื่นๆ">อื่นๆ</option>
+            </select>
+            <input type="text" id="otherService" name="otherService" style="display: none;" placeholder="ระบุบริการอื่นๆ">
+        </div>
+        <div class="form-group">
+            <label for="service2">บริการ:</label>
+            <select id="service2" name="service2">
+                <option value="ซัก">ซัก</option>
+                <option value="รีค">รีค</option>
+                <option value="ซัก/รีด">ซัก/รีด</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="note">หมายเหตุ:</label>
+            <textarea id="note" name="note"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="button" onclick="submitForm()">ยืนยัน</button>
+            <button type="button" onclick="cancelForm()">ยกเลิก</button>
+        </div>
+    </form>
+   
+</div>
+
+<script src="assets/js/serve.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+
+</body>
+</html>

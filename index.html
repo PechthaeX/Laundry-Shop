@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Landed by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload landing">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo"><a href="index.html"><img src="images/9950.jpg" alt="" width="40" height="40" /></a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">บริการทั้งหมด</a>
+              <ul>
+                <li><a href="serve.html">บริการซักรีด</a></li>
+                <li><a href="serve.html">บริการรับส่ง</a></li>
+                <li><a href="rates.html">อัตราค่าบริการ</a></li>
+              </ul>
+            </li>
+            <li><a href="elements.html">ติดต่อเรา</a></li>
+            <li id="auth-link"><a href="login.html" class="button primary">Sign Up</a></li>
+            <li id="logout-link" style="display: none;"><a href="#" onclick="logout()">Log Out</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- Banner -->
+      <section id="banner">
+        <div class="content">
+          <header>
+            <h2>Nong Nam Fa Laundry Shop</h2>
+            <p>Daily laundry service <br /> Laundry service and cloth delivery</p>
+          </header>
+          <span class="image"><img src="images/9950.jpg" alt="" /></span>
+        </div>
+        <a href="#one" class="goto-next scrolly">Next</a>
+      </section>
+      <!-- one -->
+      <section id="one" class="spotlight style3 left">
+        <span class="image fit main bottom"><img src="images/pic04.jpg" alt="" /></span>
+        <div class="content">
+          <header>
+            <h2>ความเป็นมาของร้านน้องน้ำฟ้าซักอบรีด</h2>
+          </header>
+          <p>ร้านน้องน้ำฟ้าซักอบรีดตั้งอยู่ บ้านเลขที่ 197/6 ตำบลปากพูน อำเภอเมืองนครศรีธรรมราช จังหวัดนครศรีธรรมราช</p>
+          <p>เป็นธุรกิจที่ให้บริการ ซักอบรีดเสื้อผ้า ซักแห้ง ซักพรม ซักผ้าม่าน ซักผ้านวม ผ้าปูที่นอน ซักตุ๊กตา รองเท้า และ หมวกเปิดให้บริการตั้งแต่ปี 2559 บริหารงานโดยคุณอังคณา จงจิตร</p>
+        </div>
+        <a href="#two" class="goto-next scrolly">Next</a>
+      </section>  
+      <!-- two -->
+      <section id="two" class="spotlight style3 left">
+        <span class="image fit main bottom"><img src="images/pic04.jpg" alt="" /></span>
+        <div class="content">
+          <p>บริการคุณภาพ เน้นความสะดวกสบายของลูกค้า ในราคาที่สมเหตุสมผล - ร้านของเราต้องการให้ลูกค้าได้รับบริการที่สะดวกสบาย มีคุณภาพ ในราคาที่จับต้องได้ จึงให้บริการโดยการทำงานที่ร้าน ไม่ต้องส่งผ้าไปทำที่อื่น จึงทำให้ไม่มีต้นทุนค่าขนส่ง ลดโอกาสเสื้อผ้าหาย และทำให้ลูกค้าสามารถรับผ้าได้เร็วขึ้น ในด้านของที่ตั้งร้าน ร้านของเราตั้งอยู่ใจกลางเมือง เดินทางสะดวก รถไม่ติด และมีที่จอดรถ นอกจากนี้ เพื่อเพิ่มความสะดวกให้กับลูกค้า ทางเรามีจุดรับผ้าซึ่งลูกค้าสามารถมารับและส่งผ้าได้ตลอด 15 ชั่วโมง ตั้งแต่07.00 น. - 21.30 น.และมีบริการรับ - ส่ง สำหรับลูกค้าที่ไม่สะดวกเดินทางมาเองอีกด้วย</p>
+          <ul class="actions">
+            <li><a href="#" class="button">รายละเอียดเพิ่มเติม</a></li>
+          </ul>
+        </div>
+        <a href="elements.html" class="goto-next scrolly">Next</a>
+      </section>  
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/longin.js"></script>
+    <script>
+      function updateProfile() {
+        var logo = document.getElementById('logo');
+        var isLoggedIn = localStorage.getItem('loggedIn');
+        var username = localStorage.getItem('username');
+        if (isLoggedIn) {
+          logo.innerHTML = `<a href="profile.html">${username}</a>`;
+          document.getElementById('auth-link').style.display = 'none';
+          document.getElementById('logout-link').style.display = 'inline';
+        } else {
+          logo.innerHTML = `<a href="index.html"><img src="images/9950.jpg" alt="" width="40" height="40" /></a>`;
+          document.getElementById('auth-link').style.display = 'inline';
+          document.getElementById('logout-link').style.display = 'none';
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', updateProfile);
+
+      function logout() {
+        localStorage.removeItem('loggedIn');
+        localStorage.removeItem('username');
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>

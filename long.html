@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="assets/css/long.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId());
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+
+      var id_token = googleUser.getAuthResponse().id_token;
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'YOUR_BACKEND_URL');
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({ token: id_token }));
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          localStorage.setItem('loggedIn', true);
+          localStorage.setItem('username', profile.getName());
+          window.location.href = "profile.html";
+        } else {
+          console.error('Failed to sign in');
+        }
+      };
+    }
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
+  </div>
+</body>
+</html>
